@@ -1,0 +1,52 @@
+@import "normalize";
+@import "variables";
+@import "grid-24";
+@import "base";
+@import "colors";
+@import "margin";
+@import "padding";
+@import "type";
+@import "utilities";
+@import "borders";
+@import "buttons";
+@import "lists";
+@import "forms";
+@import "media-object";
+@import "tables";
+
+$font-size: 16px;
+
+#main-navigation{
+  ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  li {
+    padding: 0 1rem;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.table {
+  .grd-row {
+    &:nth-child(even) {
+      background: $gray-light-8;
+    }
+  }
+}
+.domain-select {
+  cursor: pointer;
+}
+#account-list {
+  .grd-row {
+    display: none;
+    &.active {
+      display: flex;
+      &:nth-child(even) {
+        background: $gray-light-8;
+      }
+    }
+  }
+}
