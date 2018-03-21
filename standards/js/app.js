@@ -27,7 +27,7 @@ $(".account-delete").on("click", function(e){
       data: { username: username, id: userid, domain: domain }
     }) .done(function(msg) {
       if(msg.length==0) {
-        $('#account-list-content').load("./standards/include/account-list.php");
+        $('#account-list-content').load("./account-get-list.php");
       } else {
         alert("Es ist ein Fehler aufgetreten.");
       }

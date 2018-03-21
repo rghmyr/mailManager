@@ -17,5 +17,7 @@
       printf('<div class="grd-row-col-4-24--md txt--right p1">%s</div>',$infoTxt);
       print ('</div>');
     }
+  } else {
+    print("Zugriff verweigert");
   }
 ?>

@@ -1,10 +1,10 @@
 <html lang="de">
 <head>
-  <?php include_once("./standards/include/meta-head.php"); ?>
+  <?php include_once($conf['base-path']."standards/include/meta-head.php"); ?>
   <title>Umleitung anlegen - mail Manager</title>
 </head>
 <body>
-  <?php include_once("./standards/include/header.php"); ?>
+  <?php include_once($conf['base-path']."standards/include/header.php"); ?>
   <main class="measure" id="standards">
     <h1>Umleitung anlegen</h1>
     <section class="grd m1">
@@ -40,6 +40,6 @@
       </div>
     </section>
   </main>
-  <?php include_once("./standards/include/footer.php"); ?>
+  <?php include_once($conf['base-path']."standards/include/footer.php"); ?>
 </body>
 </html>

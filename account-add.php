@@ -1,14 +1,14 @@
 <?php
-  include_once("./standards/include/usercontrol.php");
+  include_once($conf['base-path']."standards/include/usercontrol.php");
   if($_SESSION['backend-role'] == "admin") {
 ?>
 <html lang="de">
 <head>
-  <?php include_once("./standards/include/meta-head.php"); ?>
+  <?php include_once($conf['base-path']."standards/include/meta-head.php"); ?>
   <title>Konto anlegen - mail Manager</title>
 </head>
 <body>
-  <?php include_once("./standards/include/header.php"); ?>
+  <?php include_once($conf['base-path']."standards/include/header.php"); ?>
   <main class="measure" id="standards">
     <h1>Domainauswahl</h1>
     <section class="my1">
@@ -67,13 +67,13 @@
             print($mysqli->error);
           }
           print('<section id="account-list-content">');
-          include_once("./standards/include/account-list.php");
+          include_once($conf['base-path']."account-get-list.php");
           print('</section>');
         ?>
       </div>
     </section>
   </main>
-  <?php include_once("./standards/include/footer.php"); ?>
+  <?php include_once($conf['base-path']."standards/include/footer.php"); ?>
 </body>
 </html>
 <?php
