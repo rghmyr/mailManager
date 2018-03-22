@@ -1,42 +1,53 @@
+<?php
+  include_once("./standards/include/usercontrol.php");
+  if($_SESSION['backend-role'] == "admin") {
+?>
 <html lang="de">
 <head>
-  <?php include_once($conf['base-path']."standards/include/meta-head.php"); ?>
-  <title>Konto anlegen - mail Manager</title>
+  <?php include_once("./standards/include/meta-head.php"); ?>
+  <title>Domain anlegen - mail Manager</title>
 </head>
 <body>
-  <?php include_once($conf['base-path']."standards/include/header.php"); ?>
+  <?php include_once("./standards/include/header.php"); ?>
   <main class="measure" id="standards">
-    <h1>Domainauswahl</h1>
-    <section class="grd m1">
+    <h1>Domain anlegen</h1>
+    <section class="my1">
       <form method="POST">
         <div class="grd-row">
-          <div class="grd-row-col-11-24--md px1"><input type="text" name="username" placeholder="max.mustermann"></div>
-          <div class="grd-row-col-2-24--md px1">@</div>
-          <div class="grd-row-col-11-24--md px1"><input type="text" name="domain"></div>
+          <div class="grd-row-col-24 px1"><input type="text" name="domain" required placeholder="example.com"/></div>
         </div>
         <div class="grd-row">
-          <div class="grd-row-col-24 txt--right"><button type="submit" class="btn--green">Add</button></div>
+          <div class="grd-row-col-24 txt--right"><button type="submit" class="btn--green">sichern <i class="fas fa-save"></i></button></div>
         </div>
       </form>
     </section>
-    <section class="grd m1">
-        <?php
-          if(isset($_POST) && strlen($_POST['adresse'])>0) {
-            // $mysqli->query("INSERT INTO accounts (id, username, domain, password, quota, enabled, sendonly) VALUES (NULL, '".$_POST['username']."', '".$_POST['domain']."', '".$hashedPassword."', '".$_POST['quota']."', '".$_POST['enabled']."', '".$_POST['sendonly']."');");
-          }
+    <?php
+      if(isset($_POST) && strlen($_POST['domain'])>0) {
+        $query = "INSERT INTO domains (id, domain) VALUES (NULL, '".$_POST['domain']."');";
 
-          $res = $mysqli->query("SELECT * FROM domains ORDER BY username ASC");
-          while ($row = $res->fetch_assoc()) {
-            print ('<div class="grd-row">');
-            printf('<div class="grd-row-col-10-24--md p1">%s</div>',"");
-            printf('<div class="grd-row-col-2-24--md p1">%s</div>',"");
-            printf('<div class="grd-row-col-12-24--md p1">%s</div>',"");
-            print ('</div>');
-          }
-        ?>
+        //print($query);
+        $mysqli->query($query);
+
+        print($mysqli->error);
+      }
+    ?>
+    <section id="domain-list" class="table">
+      <div class="grd-row">
+        <div class="grd-row-col-19-24 p1">Domain</div>
+        <div class="grd-row-col-5-24 p1"></div>
       </div>
+      <section id="domain-list-content">
+      <?php
+        include_once("./domain-get-list.php");
+      ?>
+      </section>
     </section>
   </main>
-  <?php include_once($conf['base-path']."standards/include/footer.php"); ?>
+  <?php include_once("./standards/include/footer.php"); ?>
 </body>
 </html>
+<?php
+  } else {
+    header("Location: ./");
+  }
+?>

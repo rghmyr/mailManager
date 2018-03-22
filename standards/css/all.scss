@@ -15,8 +15,21 @@
 @import "tables";
 
 $font-size: 16px;
-
+.top-header {
+  a {
+    display: block;
+    cursor: pointer;
+    color: $dark-gray;
+    text-decoration: none;
+  }
+}
 #main-navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  #back-container {
+    display: flex;
+  }
   ul {
     display: flex;
     justify-content: flex-end;
@@ -37,9 +50,13 @@ $font-size: 16px;
   }
 }
 .domain-select {
-  cursor: pointer;
+  a {
+    cursor: pointer;
+    color: $dark-gray;
+    text-decoration: none;
+  }
 }
-#account-list {
+#account-list, #alias-list {
   .grd-row {
     display: none;
     &.active {

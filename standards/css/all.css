@@ -1350,6 +1350,23 @@ table td {
   line-height: 1;
 }
 
+.top-header a {
+  display: block;
+  cursor: pointer;
+  color: rgba(72, 72, 72, 0.99);
+  text-decoration: none;
+}
+
+#main-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+#main-navigation #back-container {
+  display: flex;
+}
+
 #main-navigation ul {
   display: flex;
   justify-content: flex-end;
@@ -1367,18 +1384,20 @@ table td {
   background: rgba(250, 250, 250, 0.99);
 }
 
-.domain-select {
+.domain-select a {
   cursor: pointer;
+  color: rgba(72, 72, 72, 0.99);
+  text-decoration: none;
 }
 
-#account-list .grd-row {
+#account-list .grd-row, #alias-list .grd-row {
   display: none;
 }
 
-#account-list .grd-row.active {
+#account-list .grd-row.active, #alias-list .grd-row.active {
   display: flex;
 }
 
-#account-list .grd-row.active:nth-child(even) {
+#account-list .grd-row.active:nth-child(even), #alias-list .grd-row.active:nth-child(even) {
   background: rgba(250, 250, 250, 0.99);
 }
