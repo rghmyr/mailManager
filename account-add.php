@@ -21,7 +21,7 @@
             <?php
               $res = $mysqli->query("SELECT * FROM domains ORDER BY domain ASC");
               while ($row = $res->fetch_assoc()) {
-                if($row['domain'] == $conf['maindomain']) {
+                if($row['domain'] == MAINDOMAIN) {
                   printf('<option selected>%s</option>',$row['domain']);
                 } else {
                   printf('<option>%s</option>',$row['domain']);

@@ -4,6 +4,9 @@ $(".table").on("click",".domain-select",function(){
 });
 
 // Domains
+if($("#domain-list-content").length > 0) {
+  $('#domain-list-content').load("./domain-get-list.php");
+}
 $("#domain-list").on("click", ".domain-delete", function(e){
   e.preventDefault();
   var domain = $(this).data("domain");
@@ -24,6 +27,9 @@ $("#domain-list").on("click", ".domain-delete", function(e){
 });
 
 // Accounts
+if($("#account-list-content").length > 0) {
+  $('#account-list-content').load("./account-get-list.php");
+}
 $("form").on("change","#domain",function(){
   var domain = $(this).val();
   $('#account-list .grd-row').removeClass("active");
@@ -54,12 +60,15 @@ $("#account-list").on("click", ".account-delete", function(e){
 });
 
 // Umleitungen
+if($("#alias-list-content").length > 0) {
+  $('#alias-list-content').load("./alias-get-list.php");
+}
 $("form").on("change","#domain",function(){
   var domain = $(this).val();
   $('#alias-list .grd-row').removeClass("active");
   $('#alias-list .grd-row').each(function(){
     if($(this).data("domain") == domain)
-      $(this).addClass("active");
+      $(this).addClass("active").find(".grd-row").addClass("active");
   });
 });
 

@@ -11,7 +11,7 @@
         $infoTxt = "";
       }
 
-      $selectedDomain = isset($_GET['domain'])?$_GET['domain']:$conf['maindomain'];
+      $selectedDomain = isset($_GET['domain'])?$_GET['domain']:MAINDOMAIN;
 
       printf('<div class="grd-row %s %s" data-domain="%s">',$selectedDomain==$row['domain']?'active':'',$row['enabled']==1?'fnt--green':'fnt--red',$row['domain']);
       printf('<div class="grd-row-col-18-24--md p1">%s</div>',$row['username']."@".$row['domain']);
