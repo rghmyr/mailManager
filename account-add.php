@@ -1,5 +1,5 @@
 <?php
-  include_once(".standards/include/usercontrol.php");
+  include_once("./standards/include/usercontrol.php");
   if($_SESSION['backend-role'] == "admin") {
 ?>
 <html lang="de">
